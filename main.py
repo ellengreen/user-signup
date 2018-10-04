@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect, render_template
+import string
 
 app = Flask(__name__)
 
@@ -29,9 +30,6 @@ def spaces(data):
     else:
         return False
 
-#Checks for special characters
-#special_chars = ('[@_!#$%^&*()<>?/\|}{~:]')
-#def special_char(data):
 
 
 @app.route('/welcome', methods=['POST'])
@@ -74,7 +72,8 @@ def verify():
         email_error = "Must contain one period"
 
 #Error if special characters used
- 
+    if username.isalnum() == False:
+        user_error = "Cannot contain special characters"
 
 #Error if user leaves any fields empty (besides email)
     if blank(username):
@@ -95,7 +94,9 @@ def verify():
                                 user_error=user_error,
                                 pass_error=pass_error, 
                                 verify_error=verify_error, 
-                                email_error=email_error)
+                                email_error=email_error,
+                                username=username,
+                                email=email)
 
 
 app.run()
