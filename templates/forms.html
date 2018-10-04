@@ -8,25 +8,25 @@
 
     <label for "username">Username
     <input type="text" name="username" value={{username}}></label>
-    {{user_error}}
+    <span class="error">{{user_error}}</span>
+    
 
     <br>
 
     <label>Password
     <input type="password" name="password" value={{password}}></label>
-    {{pass_error}}
-
+    <span class="error">{{pass_error}}</span>
     <br>
 
     <label>Verify Password
     <input type="password" name="verify" value={{verify}}></label>
-    {{verify_error}}
+    <span class="error">{{verify_error}}</span>
 
     <br>
 
     <label>Email (Optional)
     <input type="text" name="email" value={{email}}></label>
-    {{email_error}}
+    <span class="error">{{email_error}}</span>
 
     <br>
 
