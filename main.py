@@ -22,11 +22,17 @@ def valid_length(data):
     else:
         return True
 
+#Checks for spaces
 def spaces(data):
     if " " in data:
         return True
     else:
         return False
+
+#Checks for special characters
+#special_chars = ('[@_!#$%^&*()<>?/\|}{~:]')
+#def special_char(data):
+
 
 @app.route('/welcome', methods=['POST'])
 
@@ -77,6 +83,9 @@ def verify():
         pass_error = "Must enter a password"
     if blank(verify):
         verify_error = "Must re-enter password"
+    if blank(email):
+        email_error = ''
+
 
 #If no errors, take user to Welcome page
     if not user_error and not pass_error and not verify_error and not email_error:
