@@ -22,7 +22,7 @@ def valid_length(data):
     else:
         return True
 
-def no_spaces(data):
+def spaces(data):
     if " " in data:
         return True
     else:
@@ -54,11 +54,11 @@ def verify():
         verify_error = "Passwords do not match"
 
 #Error if spaces in form
-    if no_spaces(username):
+    if spaces(username):
         user_error = "Must not contain spaces"
-    if no_spaces(password):
+    if spaces(password):
         pass_error = "Must not contain spaces"
-    if no_spaces(email):
+    if spaces(email):
         email_error = "Must not contain spaces"
 
 #Error if email contains multiple "@" or "."
