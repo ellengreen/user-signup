@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 app.config['DEBUG'] = True
 
+#Take user to form
 @app.route('/', methods=['GET'])
 def index():
     return render_template("forms.html")
@@ -30,10 +31,7 @@ def spaces(data):
     else:
         return False
 
-
-
 @app.route('/welcome', methods=['POST'])
-
 def verify():
     username = request.form['username']
     password = request.form['password']
@@ -84,7 +82,6 @@ def verify():
         verify_error = "Must re-enter password"
     if blank(email):
         email_error = ''
-
 
 #If no errors, take user to Welcome page
     if not user_error and not pass_error and not verify_error and not email_error:
